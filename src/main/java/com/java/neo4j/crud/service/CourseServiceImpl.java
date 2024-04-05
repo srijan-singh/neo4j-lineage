@@ -32,4 +32,27 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findAll();
     }
 
+    @Override
+    public Course getCourseById(Long id) {
+        return courseRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Course updateCourse(CourseTemplate courseTemplate, Long id) {
+        Course course = getCourseById(id);
+
+        course.setIdentifier(courseTemplate.getIdentifier());
+        course.setTitle(courseTemplate.getTitle());
+        course.setTeacher(courseTemplate.getTeacher());
+        
+        courseRepository.save(course);
+        
+        return course;
+    }
+
+    @Override
+    public void removeCourse(Long id) {
+        courseRepository.deleteById(id);
+    }
+
 }
