@@ -59,7 +59,7 @@
 
         // LOGIC OPERATION AND
         MATCH (node:LABEL_1)
-        WHERE node.attribute_1 = "X" AND node.attribute_1 = "Y"
+        WHERE node.attribute_1 = "X" AND node.attribute_2 = "Y"
         RETURN node
 
         // LOGIC OPERATION OR
