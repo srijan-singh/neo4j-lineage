@@ -190,24 +190,14 @@
 4. Delete `/course/delete/{id}`
     - Delete Mapping
 
-#### Example Query
+## Learning Resources:
 
-    CREATE
+### Neo4j (Graph Database) Crash Course 
 
-    (dev1:Employee {name: "Adam", role: "Frontend Developer"}),
-    (dev2:Employee {name: "Eve", role: "Backend Developer"}),
+- [YouTube](https://www.youtube.com/watch?v=8jNPelugC2s) 
+- [GitHub](https://github.com/harblaith7/Neo4j-Crash-Course/tree/main)
 
-    (manager:Manager {name: "John Doe", department: "Engineering"}),
+### Neo4j Course for Beginners
 
-    (company:Company {name: "Acme Corp"}),
-
-    (dev1)-[:WORKS_WITH]->(dev2),
-    (dev1)<-[:WORKS_WITH]-(dev2),
-
-    (manager)-[:MANAGES]->(dev1),
-    (manager)-[:MANAGES]->(dev2),
-
-    (dev1)-[:EMPLOYED_BY {start_date: "2022-01-01", salary: 80000}]->(company),
-    (dev2)-[:EMPLOYED_BY {start_date: "2022-01-01", salary: 85000}]->(company),
-    (manager)-[:EMPLOYED_BY {start_date: "2020-05-15", salary: 120000}]->(company);
-
+- [YouTube](https://www.youtube.com/watch?v=_IgbB24scLI)
+- [GitHub](https://github.com/fhsinchy/spring-neo4j)
