@@ -162,6 +162,24 @@
     RELATIONSHIP_2: Uni-directional
     RELATIONSHIP_3: Uni-directional with attributes
 
+## Spring
+
+### Dependencies
+
+    // Gradle
+    implementation("org.springframework.boot:spring-boot-starter-data-neo4j")
+    implementation("org.neo4j.driver:neo4j-java-driver")
+
+### Endpoints
+
+1. Create `/course/add`
+
+2. Read `/course/{id}`, to get all `/courses/all`
+
+3. Update `/course/update/{id}`
+
+4. Delete `/course/delete/{id}`
+
 #### Example Query
 
     CREATE
@@ -183,5 +201,3 @@
     (dev2)-[:EMPLOYED_BY {start_date: "2022-01-01", salary: 85000}]->(company),
     (manager)-[:EMPLOYED_BY {start_date: "2020-05-15", salary: 120000}]->(company);
 
-
-## Spring
