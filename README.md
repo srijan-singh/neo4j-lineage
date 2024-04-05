@@ -173,12 +173,22 @@
 ### Endpoints
 
 1. Create `/course/add`
+    - Post Mapping
+
+            {
+                "identifier": "CS101",
+                "title": "C++",
+                "teacher": "John Doe"
+            }
 
 2. Read `/course/{id}`, to get all `/courses/all`
+    - Get Mapping
 
 3. Update `/course/update/{id}`
+    - Put Mapping
 
 4. Delete `/course/delete/{id}`
+    - Delete Mapping
 
 #### Example Query
 
