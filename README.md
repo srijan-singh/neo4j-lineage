@@ -49,7 +49,7 @@
 
         // Greater than or less than
         MATCH (node:LABEL_1)
-        WHERE node.attribute_1 >= 0 AND node.attribute_1 <=10
+        WHERE node.attribute_1 >= 0 AND node.attribute_2 <=10
         RETURN node
 
         // LOGIC OPERATION NOT
