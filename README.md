@@ -37,9 +37,14 @@
 
 2. Read by Node attributes
 
+        // BASIC OPERATION
+
         // Equals
         MATCH (node:LABEL_1)
         WHERE node.attribute_1 = "X"
+        RETURN node
+
+        MATCH (node:LABEL_1 {attribute_1: "X"})
         RETURN node
     
         // Not Equal
@@ -47,25 +52,62 @@
         WHERE node.attribute_1 <> "X"
         RETURN node
 
-        // Greater than or less than
+        // Greater than
         MATCH (node:LABEL_1)
-        WHERE node.attribute_1 >= 0 AND node.attribute_2 <=10
+        WHERE node.attribute_1 >= 0 
         RETURN node
 
-        // LOGIC OPERATION NOT
+        // Less than
         MATCH (node:LABEL_1)
-        WHERE NOT node.attribute_1 = "X"
+        WHERE node.attribute_1 <=10
         RETURN node
 
-        // LOGIC OPERATION AND
+        // LOGIC OPERATION
+
+        // OR
+        MATCH (node:LABEL_1)
+        WHERE node.attribute_1 = "X" OR node.attribute_2 = "Y"
+        RETURN node
+
+        // AND
         MATCH (node:LABEL_1)
         WHERE node.attribute_1 = "X" AND node.attribute_2 = "Y"
         RETURN node
 
-        // LOGIC OPERATION OR
+        // NOT
         MATCH (node:LABEL_1)
-        WHERE node.attribute_1 = "X" OR node.attribute_2 = "Y"
+        WHERE NOT node.attribute_1 = "X"
         RETURN node
+
+        // STATS
+
+        // Arithmetic operation
+        MATCH (node:LABEL_1) 
+        WHERE (node.attribute_1 / (node_attribute_2 * node_attribute_2)) > X
+        RETURN node
+
+        // LIMIT
+        MATCH (node:LABEL_1)
+        WHERE node.attribute >= X
+        RETURN node
+        LIMIT 1
+
+        // SKIP
+        MATCH (node:LABEL_1)
+        WHERE node.attribute >= X
+        RETURN node
+        // Would skip the first node
+        SKIP 1
+        LIMIT 3
+
+        // ORDER BY
+        MATCH (node:LABEL_1)
+        WHERE node.attribute >= X
+        RETURN node
+        // Would skip the first node
+        SKIP 1
+        ORDER BY node.attribute_1 DESC
+        LIMIT 3        
 
 3. Read by Node-Node Relationship
 
@@ -79,6 +121,40 @@
         WHERE node_1.attribute = "X" AND rel.attribute_1 >= "Y"
         RETURN node_1
 
+5. Aggregate
+
+        MATCH (node_1:LABEL_1) -[rel:RELATIONSHIP_1]- (node_2:LABEL_2)
+        RETURN node_1.attribute_1, COUNT(rel), AVG(rel.attribute_1) as RESULT
+        ORDER BY RESULT ASC
+
+### UPDATE
+
+1. Updating value
+
+        MATCH (node:LABEL_1)
+        WHERE node.attribute_1 = "X"
+        SET node.attribute_2 = "Y", node.attribute_3 = "Z"
+        RETURN node
+
+2. Removing value
+
+        MATCH (node:LABEL_1)
+        WHERE node.attribute_1 = "X"
+        REMOVE node.attribute_3
+        RETURN node
+
+### DELETE
+
+1. Deleting node and relationship
+
+        MATCH (node:LABEL_1)
+        WHERE node.attribute_1 = "X"
+        DETACH DELETE node
+
+2. Deleting relationship
+
+        MATCH (node_1:LABEL_1) -[rel:RELATIONSHIP_1]-> (node_2: LABEL_2)
+        DELETE rel
 
 ### Legends
 
