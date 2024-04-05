@@ -1,6 +1,6 @@
 # Neo4j-Basics
 
-## Commands
+## CYPHER Querry
 
 ### CREATE
 
